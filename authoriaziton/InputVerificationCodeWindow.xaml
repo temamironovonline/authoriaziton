@@ -1,0 +1,16 @@
+﻿<Window x:Class="authoriaziton.InputVerificationCodeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:authoriaziton"
+        mc:Ignorable="d"
+        Title="InputVerificationCodeWindow" Height="200" Width="300">
+    <Grid>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock Text="Введите проверочный код"></TextBlock>
+            <TextBox Name="inputVerificationCode" TextChanged="inputVerificationCode_TextChanged"></TextBox>
+            <Button Name="checkVerificationCode" Content="Проверить" Margin="0,10,0,0" Click="checkVerificationCode_Click" IsEnabled="False"></Button>
+        </StackPanel>
+    </Grid>
+</Window>
