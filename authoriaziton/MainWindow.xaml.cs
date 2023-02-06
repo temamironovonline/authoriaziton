@@ -24,7 +24,6 @@ namespace authoriaziton
                 _counterTime--;
             }
             newCodeTimer.Text = $"Получить новый код можно через {_counterTime} секунд";
-
         }
 
         private void signIn_Click(object sender, RoutedEventArgs e)
@@ -38,16 +37,25 @@ namespace authoriaziton
                 CreateVerificationCodeWindow createCode = new CreateVerificationCodeWindow(randomDigit);
                 createCode.ShowDialog();
 
-                InputVerificationCodeWindow inputCode = new InputVerificationCodeWindow();
+                InputVerificationCodeWindow inputCode = new InputVerificationCodeWindow(randomDigit);
                 inputCode.ShowDialog();
 
-                if (String.Equals(inputCode.EnteredVerificationCode, randomDigit.ToString()))
+                if (inputCode.ReturnErrorCode == 0)
                 {
                     MessageBox.Show("Поздравляем!", "Ура");
                 }
-                else if (inputCode.EnteredVerificationCode != "")
+                else
                 {
-                    MessageBox.Show("Код неверный!", "Ошибка");
+                    if (inputCode.ReturnErrorCode == 1)
+                    {
+                        MessageBox.Show("Код неверный!", "Ошибка");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Время вышло!", "Ошибка");
+                    }
+                    signIn.IsEnabled = false;
+                    newCodeTimer.Visibility = Visibility.Visible;
                 }
             }
             else

@@ -6,13 +6,18 @@ namespace authoriaziton
 {
     public partial class InputVerificationCodeWindow : Window
     {
-        private string _EnteredVerificationCode = "";
+        private int _enteredVerificationCode = 0;
+        
 
-        public InputVerificationCodeWindow()
+        private int _createdVerificationCode;
+
+        public InputVerificationCodeWindow(int createdVerificationCode)
         {
             InitializeComponent();
 
             CreateTimer();
+
+            _createdVerificationCode = createdVerificationCode;
         }
 
         private void CreateTimer()
@@ -23,15 +28,26 @@ namespace authoriaziton
             timer.Start();
         }
 
+        private int _errorCode;
+
         private void Timer_Tick(object sender, EventArgs e)
         {
-            MessageBox.Show("Время вышло", "Внимание");
+           // MessageBox.Show("Время вышло", "Внимание");
+            _errorCode = 2;
             this.Close();
         }
 
         private void checkVerificationCode_Click(object sender, RoutedEventArgs e)
         {
-            _EnteredVerificationCode = inputVerificationCode.Text;
+            //_enteredVerificationCode = inputVerificationCode.Text;
+            if (_createdVerificationCode == _enteredVerificationCode)
+            {
+                _errorCode = 0;
+            }
+            else
+            {
+                _errorCode = 1;
+            }
             this.Close();
         }
 
@@ -47,9 +63,9 @@ namespace authoriaziton
             }
         }
 
-        public string EnteredVerificationCode
+        public int ReturnErrorCode
         {
-            get { return _EnteredVerificationCode; }
+            get { return _errorCode; }
         }
     }
 }
