@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:authoriaziton"
         mc:Ignorable="d"
-        Title="InputVerificationCodeWindow" Height="200" Width="300">
+        Title="Ввод кода" Height="200" Width="300">
     <Grid>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
             <TextBlock Text="Введите проверочный код"></TextBlock>

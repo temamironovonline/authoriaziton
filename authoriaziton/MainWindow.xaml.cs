@@ -1,16 +1,30 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Threading;
 
 namespace authoriaziton
 {
     public partial class MainWindow : Window
     {
-        private const string _userLogin = "123";
-        private const string _userPassword = "123";
-
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private const string _userLogin = "123";
+        private const string _userPassword = "123";
+
+        private DispatcherTimer _timer = new DispatcherTimer();
+        private int _counterTime = 60;
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            if (_counterTime != 0)
+            {
+                _counterTime--;
+            }
+            newCodeTimer.Text = $"Получить новый код можно через {_counterTime} секунд";
+
         }
 
         private void signIn_Click(object sender, RoutedEventArgs e)
@@ -31,14 +45,14 @@ namespace authoriaziton
                 {
                     MessageBox.Show("Поздравляем!", "Ура");
                 }
-                else
+                else if (inputCode.EnteredVerificationCode != "")
                 {
-                    MessageBox.Show("Код неверный!");
+                    MessageBox.Show("Код неверный!", "Ошибка");
                 }
             }
             else
             {
-                MessageBox.Show("Введены неверные данные");
+                MessageBox.Show("Введены неверные данные", "Ошибка");
             }
         }
     }

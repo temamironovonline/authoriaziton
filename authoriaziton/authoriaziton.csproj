@@ -55,11 +55,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="CreateVerificationCodeWindow.xaml">
+    <Page Include="Windows\CreateVerificationCodeWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="InputVerificationCodeWindow.xaml">
+    <Page Include="Windows\InputVerificationCodeWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -71,10 +71,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="CreateVerificationCodeWindow.xaml.cs">
+    <Compile Include="Windows\CreateVerificationCodeWindow.xaml.cs">
       <DependentUpon>CreateVerificationCodeWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="InputVerificationCodeWindow.xaml.cs">
+    <Compile Include="Windows\InputVerificationCodeWindow.xaml.cs">
       <DependentUpon>InputVerificationCodeWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
@@ -107,6 +107,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Pages\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
