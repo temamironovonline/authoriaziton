@@ -12,9 +12,9 @@
             <TextBox Name="inputLogin" Width="200"></TextBox>
             <TextBlock Text="Пароль"></TextBlock>
             <PasswordBox Name="inputPassword" Width="200"></PasswordBox>
-            <Button Name="signIn" Content="Войти" Margin="0,10,0,0" Click="signIn_Click"></Button>
+            <Button Name="signIn" Content="Войти" Margin="0,10,0,0" Click="signIn_Click" Width="100"></Button>
             <TextBlock Name="newCodeTimer" Visibility="Collapsed"></TextBlock>
-            <Button Name="getNewCode" Content="Получить новый код" Visibility="Collapsed"></Button>
+            <Button Name="getNewCode" Content="Получить новый код" Visibility="Collapsed" Margin="0,10,0,0" Click="getNewCode_Click"></Button>
         </StackPanel>
     </Grid>
 </Window>

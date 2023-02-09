@@ -6,9 +6,6 @@ namespace authoriaziton
 {
     public partial class InputVerificationCodeWindow : Window
     {
-        private int _enteredVerificationCode = 0;
-        
-
         private int _createdVerificationCode;
 
         public InputVerificationCodeWindow(int createdVerificationCode)
@@ -32,15 +29,13 @@ namespace authoriaziton
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-           // MessageBox.Show("Время вышло", "Внимание");
             _errorCode = 2;
             this.Close();
         }
 
         private void checkVerificationCode_Click(object sender, RoutedEventArgs e)
         {
-            //_enteredVerificationCode = inputVerificationCode.Text;
-            if (_createdVerificationCode == _enteredVerificationCode)
+            if (_createdVerificationCode == Convert.ToInt32(inputVerificationCode.Text))
             {
                 _errorCode = 0;
             }
